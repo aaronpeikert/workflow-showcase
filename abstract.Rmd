@@ -1,0 +1,3 @@
+This analysis is a toy example that fits an CFA to a dataset from [openpsychometrics.org](http://openpsychometrics.org/_rawdata/CFCS.zip). It shows how to use `rmarkdown`, `git`, `make` and `docker` to make a reproducible analysis. The repo to the paper that descibes such workflow can be found here:
+
+[github.com/aaronpeikert/reproducible-research](https://github.com/aaronpeikert/reproducible-research)

@@ -1,0 +1,52 @@
+---
+output:
+  md_document:
+    variant: gfm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+```
+
+This is the accompanying GitHub repository to a work in progress paper by Aaron Peikert[![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-7813-818X) and Andreas Brandmaier [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](http://orcid.org/0000-0001-8765-6982). [![licensebuttons by](https://licensebuttons.net/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/4.0)
+
+# Abstract
+
+```{r abstract, child = 'abstract.Rmd'}
+```
+
+# Compile
+
+## Usual Way
+
+Requires: `Git`, `RStudio`, `pandoc`, `pandoc-citeproc` & `rmarkdown`.
+
+Open RStudio -> File -> New Project -> Version Control -> Git
+
+Insert:
+
+```
+https://github.com/aaronpeikert/workflow-showcase.git
+```
+
+Open `cfcs-example.Rmd` click on `Knit`.
+
+## Using [Workflow](https://github.com/aaronpeikert/reproducible-research)
+
+Does not require R or RStudio, but `make` & `docker`.
+
+Execute in Terminal:
+
+```{bash, eval=FALSE}
+git clone https://github.com/aaronpeikert/workflow-showcase.git
+cd workflow-showcase
+make build
+make all DOCKER=TRUE
+```
+
+# Session Info
+
+```{r}
+sessioninfo::session_info()
+```
