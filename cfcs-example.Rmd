@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(lavaan)
+library(here)
 library(digest)
 ```
 
@@ -20,11 +21,7 @@ library(digest)
 
 ```{r}
 precomputed.digest <- "98c7e634dd7bb2ddf9d8f3972fff303365c55ac6"
-temp <- tempfile()
-download.file("http://openpsychometrics.org/_rawdata/CFCS.zip",destfile = temp)
-dat <- read.table(unz(temp, "CFCS/data.csv"), header=TRUE)
-unlink(temp)
-
+dat <- read.table(here("data", "CFCS.csv"), header=TRUE)
 if (precomputed.digest != digest::sha1(dat)) {
   error("Mismatch between original and current data file!")
 }

@@ -15,5 +15,8 @@ build: Dockerfile
 README.md: README.Rmd abstract.Rmd
 	$(run) Rscript -e 'rmarkdown::render("$(current_dir)/$<")'
 
-cfcs-example.pdf: cfcs-example.Rmd
+cfcs-example.pdf: cfcs-example.Rmd data/CFCS.csv
 	$(run) Rscript -e 'rmarkdown::render("$(current_dir)/$<")'
+
+data/CFCS.csv: R/00load_data.R
+	$(run) Rscript -e 'source("$(current_dir)/$<")'
