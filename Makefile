@@ -7,7 +7,7 @@ ifeq ($(DOCKER),TRUE)
 	current_dir=/home/rstudio
 endif
 
-all: cfcs-example.pdf README.md
+all: manuscript.pdf README.md
 
 build: Dockerfile
 	docker build -t $(projekt) .
@@ -15,7 +15,7 @@ build: Dockerfile
 README.md: README.Rmd abstract.Rmd
 	$(run) Rscript -e 'rmarkdown::render("$(current_dir)/$<")'
 
-cfcs-example.pdf: cfcs-example.Rmd data/CFCS.csv
+manuscript.pdf: manuscript.Rmd data/CFCS.csv
 	$(run) Rscript -e 'rmarkdown::render("$(current_dir)/$<")'
 
 data/CFCS.csv: R/00load_data.R
