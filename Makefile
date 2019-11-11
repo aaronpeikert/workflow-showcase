@@ -1,6 +1,15 @@
-projekt := $(shell basename `git rev-parse --show-toplevel`)
-current_dir := $(shell pwd)
-uid = $(shell id -u)
+projekt := $(notdir $(CURDIR))
+
+ifeq ($(WINDOWS),TRUE)
+	# please mind the unusual way to specify the path
+	current_dir:=//c/Users/aaron/Documents/reproducible-research
+	home_dir:=$(current_dir)
+	uid:=
+else
+	current_dir := $(CURDIR)
+	home_dir := $(current_dir)
+	uid = --user $(shell id -u)
+endif
 
 ifeq ($(DOCKER),TRUE)
 	run:= docker run --rm --user $(uid) -v $(current_dir):/home/rstudio $(projekt)
