@@ -8,7 +8,7 @@ ifeq ($(WINDOWS),TRUE)
 else
 	current_dir := $(CURDIR)
 	home_dir := $(current_dir)
-	uid = --user $(shell id -u)
+	uid = $(shell id -u)
 endif
 
 ifeq ($(DOCKER),TRUE)
