@@ -20,10 +20,10 @@ library(digest)
 ## Loading data
 
 ```{r}
-precomputed.digest <- "98c7e634dd7bb2ddf9d8f3972fff303365c55ac6"
 dat <- read.table(here("data", "CFCS.csv"), header=TRUE)
-if (precomputed.digest != digest::sha1(dat)) {
-  error("Mismatch between original and current data file!")
+checksum <- digest::digest(dat, "sha1")
+if (checksum != "fad71090feee900b898228857e0bbe8a82e81bf4"){
+  warning("Mismatch between original and current data file!")
 }
 ```
 
