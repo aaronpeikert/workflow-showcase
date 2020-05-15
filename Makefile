@@ -27,5 +27,5 @@ README.md: README.Rmd abstract.Rmd
 manuscript.pdf: manuscript.Rmd data/CFCS.csv
 	$(run) Rscript -e 'rmarkdown::render("$(current_dir)/$<")'
 
-data/CFCS.csv: R/00load_data.R
+data/CFCS.csv: R/prepare_data.R
 	$(run) Rscript -e 'source("$(current_dir)/$<")'
