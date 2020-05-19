@@ -21,6 +21,9 @@ all: manuscript.pdf README.md
 build: Dockerfile
 	docker build -t $(projekt) .
 
+rebuild:
+	docker build --no-cache -t $(projekt) .
+
 README.md: README.Rmd abstract.Rmd
 	$(run) Rscript -e 'rmarkdown::render("$(current_dir)/$<")'
 

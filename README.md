@@ -71,7 +71,7 @@ the docker image (`make build`) and force the rebuild of all targets
     DOCKER`).
 
 ``` bash
-git pull && make build && make -B DOCKER=TRUE
+git pull && make rebuild && make -B DOCKER=TRUE
 ```
 
 # Session Info
@@ -90,7 +90,7 @@ sessioninfo::session_info()
     ##  collate  en_US.UTF-8                 
     ##  ctype    en_US.UTF-8                 
     ##  tz       Etc/UTC                     
-    ##  date     2020-05-15                  
+    ##  date     2020-05-19                  
     ## 
     ## ─ Packages ───────────────────────────────────────────────────────────────────
     ##  package     * version date       lib source        
