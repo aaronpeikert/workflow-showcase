@@ -22,7 +22,7 @@ library(digest)
 ```{r}
 dat <- read.table(here("data", "CFCS.csv"), header=TRUE)
 checksum <- digest::digest(dat, "sha1")
-if (checksum != "fad71090feee900b898228857e0bbe8a82e81bf4"){
+if (checksum != "ef47eb380cbefdc2409ac2546d3c3dca7c1c0f86"){
   warning("Mismatch between original and current data file!")
 }
 ```

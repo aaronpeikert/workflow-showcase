@@ -32,3 +32,8 @@ manuscript.pdf: manuscript.Rmd data/CFCS.csv
 
 data/CFCS.csv: R/prepare_data.R
 	$(run) Rscript -e 'source("$(current_dir)/$<")'
+
+save: $(projekt).tar.gz
+
+$(projekt).tar.gz:
+	docker save $(projekt):latest | gzip > $@

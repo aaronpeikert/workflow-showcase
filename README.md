@@ -7,7 +7,7 @@ iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](http://orcid.
 [![licensebuttons
 by](https://licensebuttons.net/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/4.0)
 [![Ask Me Anything
-\!](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/aaronpeikert/workflow-showcase/issues/new)
+!](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/aaronpeikert/workflow-showcase/issues/new)
 ![Open Source
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
@@ -17,8 +17,7 @@ This analysis is a toy example that fits an CFA to a dataset from
 [openpsychometrics.org](http://openpsychometrics.org/_rawdata/CFCS.zip).
 It shows how to use `rmarkdown`, `git`, `make` and `docker` to make a
 reproducible analysis. The repo to the paper that descibes such workflow
-can be found
-here:
+can be found here:
 
 [github.com/aaronpeikert/reproducible-research](https://github.com/aaronpeikert/reproducible-research)
 
@@ -57,18 +56,24 @@ make build
 make all DOCKER=TRUE
 ```
 
+**Note: The build step may fail since services the build relies on are
+no longer available. In this case, you can download a ready build image
+from the [GitHub
+Releases](https://github.com/aaronpeikert/reproducible-research/releases/latest)
+and use `docker load -i workflow-showcase.tar.gz` to load it. Continue
+with `make all DOCKER=TRUE`**
+
 **Note: Windows user need to manually edit the `Makefile` and set
-current\_path to the current directory and use `make all DOCKER=TRUE
-WINDOWS=TRUE`. We hope that future releases of Docker for Windows will
-not require that workaround.**
+current_path to the current directory and use
+`make all DOCKER=TRUE WINDOWS=TRUE`. We hope that future releases of
+Docker for Windows will not require that workaround.**
 
 ## Rebuild Everything
 
 In case you experience some unexpected behavior with this workflow, you
 should check that you have the most recent version (`git pull`), rebuild
 the docker image (`make build`) and force the rebuild of all targets
-(`make -B
-    DOCKER`).
+(`make -B DOCKER`).
 
 ``` bash
 git pull && make rebuild && make -B DOCKER=TRUE
@@ -81,41 +86,38 @@ sessioninfo::session_info()
 ```
 
     ## ─ Session info ───────────────────────────────────────────────────────────────
-    ##  setting  value                       
-    ##  version  R version 3.6.1 (2019-07-05)
-    ##  os       Debian GNU/Linux 9 (stretch)
-    ##  system   x86_64, linux-gnu           
-    ##  ui       X11                         
-    ##  language (EN)                        
-    ##  collate  en_US.UTF-8                 
-    ##  ctype    en_US.UTF-8                 
-    ##  tz       Etc/UTC                     
-    ##  date     2020-05-19                  
+    ##  setting  value
+    ##  version  R version 4.1.3 (2022-03-10)
+    ##  os       Ubuntu 20.04.4 LTS
+    ##  system   x86_64, linux-gnu
+    ##  ui       X11
+    ##  language (EN)
+    ##  collate  en_US.UTF-8
+    ##  ctype    en_US.UTF-8
+    ##  tz       Etc/UTC
+    ##  date     2022-03-31
+    ##  pandoc   2.17.1.1 @ /usr/local/bin/ (via rmarkdown)
     ## 
     ## ─ Packages ───────────────────────────────────────────────────────────────────
-    ##  package     * version date       lib source        
-    ##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 3.6.1)
-    ##  backports     1.1.5   2019-10-02 [1] CRAN (R 3.6.1)
-    ##  cli           2.0.0   2019-12-09 [1] CRAN (R 3.6.1)
-    ##  crayon        1.3.4   2017-09-16 [1] CRAN (R 3.6.1)
-    ##  digest        0.6.23  2019-11-23 [1] CRAN (R 3.6.1)
-    ##  evaluate      0.14    2019-05-28 [1] CRAN (R 3.6.1)
-    ##  fansi         0.4.0   2018-10-05 [1] CRAN (R 3.6.1)
-    ##  glue          1.3.1   2019-03-12 [1] CRAN (R 3.6.1)
-    ##  here        * 0.1     2017-05-28 [1] CRAN (R 3.6.1)
-    ##  htmltools     0.4.0   2019-10-04 [1] CRAN (R 3.6.1)
-    ##  knitr         1.26    2019-11-12 [1] CRAN (R 3.6.1)
-    ##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.6.1)
-    ##  Rcpp          1.0.3   2019-11-08 [1] CRAN (R 3.6.1)
-    ##  rlang         0.4.2   2019-11-23 [1] CRAN (R 3.6.1)
-    ##  rmarkdown     1.18    2019-11-27 [1] CRAN (R 3.6.1)
-    ##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.6.1)
-    ##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.6.1)
-    ##  stringi       1.4.3   2019-03-12 [1] CRAN (R 3.6.1)
-    ##  stringr       1.4.0   2019-02-10 [1] CRAN (R 3.6.1)
-    ##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.6.1)
-    ##  xfun          0.11    2019-11-12 [1] CRAN (R 3.6.1)
-    ##  yaml          2.2.0   2018-07-25 [1] CRAN (R 3.6.1)
+    ##  package     * version date (UTC) lib source
+    ##  cli           3.2.0   2022-02-14 [1] RSPM (R 4.1.0)
+    ##  digest        0.6.29  2021-12-01 [1] RSPM (R 4.1.0)
+    ##  evaluate      0.15    2022-02-18 [1] RSPM (R 4.1.0)
+    ##  fastmap       1.1.0   2021-01-25 [1] RSPM (R 4.1.0)
+    ##  here        * 1.0.1   2020-12-13 [1] RSPM (R 4.1.0)
+    ##  htmltools     0.5.2   2021-08-25 [1] RSPM (R 4.1.0)
+    ##  knitr         1.37    2021-12-16 [1] RSPM (R 4.1.0)
+    ##  magrittr      2.0.2   2022-01-26 [1] RSPM (R 4.1.0)
+    ##  rlang         1.0.2   2022-03-04 [1] RSPM (R 4.1.0)
+    ##  rmarkdown     2.13    2022-03-10 [1] RSPM (R 4.1.0)
+    ##  rprojroot     2.0.2   2020-11-15 [1] RSPM (R 4.1.0)
+    ##  sessioninfo   1.2.2   2021-12-06 [1] RSPM (R 4.1.0)
+    ##  stringi       1.7.6   2021-11-29 [1] RSPM (R 4.1.0)
+    ##  stringr       1.4.0   2019-02-10 [1] RSPM (R 4.1.0)
+    ##  xfun          0.30    2022-03-02 [1] RSPM (R 4.1.0)
+    ##  yaml          2.3.5   2022-02-21 [1] RSPM (R 4.1.0)
     ## 
-    ## [1] /usr/local/lib/R/site-library
-    ## [2] /usr/local/lib/R/library
+    ##  [1] /usr/local/lib/R/site-library
+    ##  [2] /usr/local/lib/R/library
+    ## 
+    ## ──────────────────────────────────────────────────────────────────────────────
